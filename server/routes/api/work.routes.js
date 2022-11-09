@@ -3,10 +3,10 @@ import { Router } from "express";
 
 const routes = Router();
 
-routes.post("/works", controllers.create);
-routes.get("/works", controllers.getAll);
-routes.get("/works/:id", controllers.getOne);
-routes.patch("/works/:id", controllers.update);
-routes.delete("/works/:id", controllers.remove);
+routes.post("/", controllers.create);
+routes.get("/", controllers.getAll);
+routes.get("/:id", controllers.getOne);
+routes.patch("/:id", controllers.update);
+routes.delete("/:id", controllers.remove);
 
 export default routes;

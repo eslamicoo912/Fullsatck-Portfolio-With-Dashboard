@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Skill = mongoose.Schema({
   title: String,
-  tetx: String,
+  text: String,
 });
 
 const SkillModel = mongoose.model("SkillModel", Skill);

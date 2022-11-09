@@ -3,7 +3,7 @@ import ProjectRoutes from "./api/project.routes.js";
 import EducationRoutes from "./api/education.routes.js";
 import SkillRoutes from "./api/skill.routes.js";
 import WorkRoutes from "./api/work.routes.js";
-import MessageRoutes from "./api/messgae.routes.js";
+import MessageRoutes from "./api/message.routes.js";
 
 const routes = Router();
 
