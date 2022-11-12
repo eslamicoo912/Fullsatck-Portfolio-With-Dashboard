@@ -1,3 +1,6 @@
+const aboutData = async () => {
+  const response = await fetch();
+};
 let resumeData = {
   imagebaseurl: "https://rbhatia46.github.io/",
   name: "Eslam Ashraf",
@@ -40,13 +43,11 @@ let resumeData = {
       Achievements: [
         {
           title: "E-Commerce Website",
-          link:
-            "https://github.com/eslamicoo912/E-Commerce-Website-Using-React",
+          link: "https://github.com/eslamicoo912/E-Commerce-Website-Using-React",
         },
         {
           title: "Resturant Website",
-          link:
-            "https://github.com/eslamicoo912/Resturant-Website-Using-React.js-And-Bootstrap",
+          link: "https://github.com/eslamicoo912/Resturant-Website-Using-React.js-And-Bootstrap",
         },
         {
           title: "ToDo List App",
@@ -54,8 +55,7 @@ let resumeData = {
         },
         {
           title: "Contact Manager App",
-          link:
-            "https://github.com/eslamicoo912/Contact-Manager-App-Using-React",
+          link: "https://github.com/eslamicoo912/Contact-Manager-App-Using-React",
         },
         {
           title: "Quiz App",
