@@ -5,5 +5,5 @@ const About = mongoose.Schema({
   text: String,
 });
 
-const AboutModel = mongoose.model("AboutModel", Contact);
+const AboutModel = mongoose.model("AboutModel", About);
 export default AboutModel;
