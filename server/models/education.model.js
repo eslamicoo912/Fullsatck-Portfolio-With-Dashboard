@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const Education = mongoose.Schema({
-  start_date: Date,
-  end_date: Date,
+  start_date: String,
+  end_date: String,
   school: String,
   degree: String,
   text: String,

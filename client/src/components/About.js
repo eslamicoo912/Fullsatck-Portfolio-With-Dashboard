@@ -1,27 +1,43 @@
 import React, { Component } from "react";
+import axios from "axios";
 export default class About extends Component {
+  state = {
+    aboutData: "",
+    contacts: "",
+  };
+
+  componentDidMount = async () => {
+    const aboutData = await axios.get("http://localhost:5000/api/about");
+    this.setState({ aboutData: aboutData.data[0] });
+
+    const contactsData = await axios.get("http://localhost:5000/api/contact");
+    this.setState({ contacts: contactsData.data[0] });
+  };
+
   render() {
-    let resumeData = this.props.resumeData;
+    const { img, text } = this.state.aboutData;
+    const { fullname, address, phone, linkedin, github, email, portfolio } =
+      this.state.contacts;
     return (
       <section id="about">
         <div className="row">
           <div className="three columns">
-            <img className="profile-pic" src="images/profilepic.jpg" alt="" />
+            <img className="profile-pic" src={img} alt="" />
           </div>
 
           <div className="nine columns main-col">
             <h2>About Me</h2>
-            <p>{resumeData.aboutme}</p>
+            <p>{text}</p>
 
             <div className="row">
               <div className="columns contact-details">
                 <h2>Contact Details</h2>
                 <p className="address">
-                  <span>{resumeData.name}</span>
+                  <span>{fullname}</span>
                   <br />
-                  <span>{resumeData.address}</span>
+                  <span>{address}</span>
                   <br />
-                  <a href="/">{resumeData.website}</a>
+                  <a href="/">{portfolio}</a>
                 </p>
               </div>
             </div>

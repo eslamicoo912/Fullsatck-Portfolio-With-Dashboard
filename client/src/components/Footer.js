@@ -1,26 +1,48 @@
+import axios from "axios";
 import React, { Component } from "react";
+import { AiFillGithub, AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 export default class Footer extends Component {
+  state = {
+    contacts: "",
+  };
+
+  componentDidMount = async () => {
+    const response = await axios.get("http://localhost:5000/api/contact");
+    this.setState({ contacts: response.data[0] });
+  };
+
   render() {
-    let resumeData = this.props.resumeData;
+    const {
+      fullname,
+      address,
+      phone,
+      linkedin,
+      github,
+      email,
+      portfolio,
+      facebook,
+    } = this.state.contacts;
+
     return (
       <footer>
         <div className="row">
           <div className="twelve columns">
             <ul className="social-links">
-              {resumeData.socialLinks &&
-                resumeData.socialLinks.map((item) => {
-                  return (
-                    <li>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={item.url}
-                      >
-                        <i className={item.className} />
-                      </a>
-                    </li>
-                  );
-                })}
+              <li>
+                <a target="_blank" rel="noreferrer" href={github}>
+                  <AiFillGithub />
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href={linkedin}>
+                  <AiFillLinkedin />
+                </a>
+              </li>
+              <li>
+                <a target="_blank" rel="noopener noreferrer" href={facebook}>
+                  <AiFillFacebook />
+                </a>
+              </li>
             </ul>
           </div>
           <div id="go-top">

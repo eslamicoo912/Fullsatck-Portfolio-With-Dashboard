@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const Skill = mongoose.Schema({
-  title: String,
+  skills: [Object],
 });
 
 const SkillModel = mongoose.model("SkillModel", Skill);

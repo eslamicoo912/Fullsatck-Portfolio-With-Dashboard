@@ -1,7 +1,17 @@
 import React, { Component } from "react";
+import axios from "axios";
 export default class ContactUs extends Component {
+  state = {
+    contacts: "",
+  };
+
+  componentDidMount = async () => {
+    const response = await axios.get("http://localhost:5000/api/contact");
+    this.setState({ contacts: response.data[0] });
+  };
   render() {
-    let resumeData = this.props.resumeData;
+    const { fullname, address, phone, linkedin, github, email, portfolio } =
+      this.state.contacts;
     return (
       <section id="contact">
         <div className="row section-head">
@@ -15,11 +25,11 @@ export default class ContactUs extends Component {
           <aside className="eigth columns footer-widgets">
             <div className="widget">
               <h4>Linked in :</h4>
-              <a href="/">{resumeData.linkedinId}</a>
+              <a href="/">{linkedin}</a>
               <h4>Gmail :</h4>
-              <a href="/">{resumeData.gmail}</a>
+              <a href="/">{email}</a>
               <h4>Phone</h4>
-              <h5 className="contact-phone">01013540912</h5>
+              <h5 className="contact-phone">{phone}</h5>
             </div>
           </aside>
         </div>

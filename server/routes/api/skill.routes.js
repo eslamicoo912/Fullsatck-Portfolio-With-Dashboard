@@ -6,7 +6,7 @@ const routes = Router();
 routes.post("/", controllers.create);
 routes.get("/", controllers.getAll);
 routes.get("/:id", controllers.getOne);
-routes.patch("/:id", controllers.update);
+routes.patch("/", controllers.update);
 routes.delete("/:id", controllers.remove);
 
 export default routes;

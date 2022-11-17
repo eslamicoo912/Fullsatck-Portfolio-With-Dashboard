@@ -1,5 +1,13 @@
 import React, { Component } from "react";
+import axios from "axios";
 export default class Porfolio extends Component {
+  state = {
+    projects: "",
+  };
+  componentDidMount = async () => {
+    const projectsData = await axios.get("http://localhost:5000/api/projects");
+    this.setState({ projects: projectsData.data });
+  };
   render() {
     let resumeData = this.props.resumeData;
     return (
@@ -11,21 +19,26 @@ export default class Porfolio extends Component {
               id="portfolio-wrapper"
               className="bgrid-quarters s-bgrid-thirds cf"
             >
-              {resumeData.portfolio &&
-                resumeData.portfolio.map((item) => {
+              {this.state.projects &&
+                this.state.projects.map((item) => {
                   return (
                     <div className="columns portfolio-item">
                       <div className="item-wrap">
                         <a href="#modal-01">
                           <img
-                            src={`${item.imgurl}`}
+                            src={`${item.img}`}
                             className="item-img"
                             alt=""
                           />
                           <div className="overlay">
                             <div className="portfolio-item-meta">
-                              <h5>{item.name}</h5>
-                              <p>{item.description}</p>
+                              <h5>{item.title}</h5>
+                              <p>{item.text}</p>
+                            </div>
+                            <div className="stack">
+                              {item.stack.map((item, index) => {
+                                return <p key={index}>{item.name}</p>;
+                              })}
                             </div>
                           </div>
                         </a>

@@ -5,6 +5,6 @@ const routes = Router();
 
 routes.post("/", controllers.create);
 routes.get("/", controllers.getAll);
-routes.patch("/:id", controllers.update);
+routes.patch("/", controllers.update);
 
 export default routes;

@@ -39,7 +39,7 @@ header {
   height: 800px;
   min-height: 500px;
   width: 100%;
-  background: #161415 url(../images/header-background.jpg) no-repeat top center;
+  background: #161415 url(../images/header.jpg) no-repeat top center;
   background-size: cover !important;
   -webkit-background-size: cover !important;
   text-align: center;
@@ -243,6 +243,7 @@ ul#nav li.current a {
   width: 200px;
   height: 200px;
   border-radius: 100%;
+  border: 3px solid white;
 }
 #about .contact-details {
   width: 41.66667%;
@@ -313,6 +314,51 @@ ul#nav li.current a {
   padding-bottom: 24px;
   border-bottom: 1px solid #e8e8e8;
 }
+
+.education-item {
+  background-color: #ebeeee;
+  padding: 20px;
+  box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
+  border-left: 4px solid #4790c3;
+  margin-top: 50px;
+}
+
+.education-item .school {
+  font-size: 24px;
+}
+
+/* start work */
+
+#resume .about-company {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dates {
+  display: flex;
+  gap: 10px;
+}
+
+.experience {
+  background-color: #ebeeee;
+  padding: 20px;
+  margin-top: 50px;
+  box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
+  border-left: 4px solid #4790c3;
+}
+
+.experience .company {
+  font-size: 24px;
+}
+
+.experience .start_date,
+.end_date {
+  color: #4790c3;
+}
+
+/* end work */
+
 #resume .info {
   font: 16px/24px "librebaskerville-italic", serif;
   color: #6e7881;
@@ -332,263 +378,16 @@ ul#nav li.current a {
 /*	Skill Bars
 /*----------------------------------------------*/
 
-.bars {
-  width: 95%;
-  float: left;
-  padding: 0;
-  text-align: left;
-}
-.bars .skills {
-  margin-top: 36px;
-  list-style: none;
-}
-.bars li {
-  position: relative;
-  margin-bottom: 60px;
-  background: #ccc;
-  height: 42px;
-  border-radius: 3px;
-}
-.bars li em {
-  font: 15px "opensans-bold", sans-serif;
-  color: #313131;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: normal;
-  position: relative;
-  top: -36px;
-}
-.bar-expand {
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  margin: 0;
-  padding-right: 24px;
-  background: #313131;
-  display: inline-block;
-  height: 42px;
-  line-height: 42px;
-  border-radius: 3px 0 0 3px;
+.bars ul {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 20px;
+  align-items: center;
 }
 
-.photoshop {
-  width: 60%;
-  -moz-animation: photoshop 2s ease;
-  -webkit-animation: photoshop 2s ease;
-}
-.illustrator {
-  width: 55%;
-  -moz-animation: illustrator 2s ease;
-  -webkit-animation: illustrator 2s ease;
-}
-.wordpress {
-  width: 50%;
-  -moz-animation: wordpress 2s ease;
-  -webkit-animation: wordpress 2s ease;
-}
-.css {
-  width: 95%;
-  -moz-animation: css 2s ease;
-  -webkit-animation: css 2s ease;
-}
-.html5 {
-  width: 95%;
-  -moz-animation: html5 2s ease;
-  -webkit-animation: html5 2s ease;
-}
-.jquery {
-  width: 50%;
-  -moz-animation: jquery 2s ease;
-  -webkit-animation: jquery 2s ease;
-}
-
-.bootstrap {
-  width: 95%;
-  -moz-animation: bootstrap 2s ease;
-  -webkit-animation: bootstrap 2s ease;
-}
-
-.reactjs {
-  width: 87%;
-  -moz-animation: reactjs 2s ease;
-  -webkit-animation: reactjs 2s ease;
-}
-.javascript {
-  width: 90%;
-  -moz-animation: javascript 2s ease;
-  -webkit-animation: javascript 2s ease;
-}
-
-.microsoftoffice {
-  width: 90%;
-  -moz-animation: microsoftoffice 2s ease;
-  -webkit-animation: microsoftoffice 2s ease;
-}
-@-moz-keyframes microsoftoffice {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 90%;
-  }
-}
-@-moz-keyframes javascript {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 90%;
-  }
-}
-@-moz-keyframes photoshop {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 60%;
-  }
-}
-@-moz-keyframes reactjs {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 87%;
-  }
-}
-@-moz-keyframes bootstrap {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 90%;
-  }
-}
-@-moz-keyframes illustrator {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 55%;
-  }
-}
-@-moz-keyframes wordpress {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 50%;
-  }
-}
-@-moz-keyframes css {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-@-moz-keyframes html5 {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-@-moz-keyframes jquery {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-
-@-webkit-keyframes bootstrap {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-
-@-webkit-keyframes javascript {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 90%;
-  }
-}
-
-@-webkit-keyframes microsoftoffice {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 90%;
-  }
-}
-
-@-webkit-keyframes reactjs {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 87%;
-  }
-}
-
-@-webkit-keyframes photoshop {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 60%;
-  }
-}
-@-webkit-keyframes illustrator {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 55%;
-  }
-}
-@-webkit-keyframes wordpress {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 50%;
-  }
-}
-@-webkit-keyframes css {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-@-webkit-keyframes html5 {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 95%;
-  }
-}
-@-webkit-keyframes jquery {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 50%;
-  }
+.bars ul li {
+  background-color: #ebeeee;
+  padding: 10px;
 }
 
 /* ------------------------------------------------------------------ */

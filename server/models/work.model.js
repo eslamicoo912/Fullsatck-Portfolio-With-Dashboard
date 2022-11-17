@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const Work = mongoose.Schema({
-  start_date: Date,
-  end_date: Date,
+  start_date: String,
+  end_date: String,
   company: String,
   position: String,
   text: String,

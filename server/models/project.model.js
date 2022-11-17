@@ -4,7 +4,7 @@ const Project = mongoose.Schema({
   img: String,
   title: String,
   text: String,
-  stack: [String],
+  stack: [Object],
   github: String,
   live: String,
 });

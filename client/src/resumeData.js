@@ -1,6 +1,3 @@
-const aboutData = async () => {
-  const response = await fetch();
-};
 let resumeData = {
   imagebaseurl: "https://rbhatia46.github.io/",
   name: "Eslam Ashraf",

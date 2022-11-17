@@ -1,7 +1,27 @@
 import React, { Component } from "react";
+import axios from "axios";
 export default class Resume extends Component {
+  state = {
+    skills: "",
+    educations: "",
+    experiences: "",
+  };
+
+  componentDidMount = async () => {
+    const skillsData = await axios.get("http://localhost:5000/api/skills");
+    this.setState({ skills: skillsData.data[0].skills });
+
+    const educationsData = await axios.get(
+      "http://localhost:5000/api/educations"
+    );
+    this.setState({ educations: educationsData.data });
+
+    const experiencesData = await axios.get("http://localhost:5000/api/works");
+    this.setState({ experiences: experiencesData.data });
+  };
   render() {
     let resumeData = this.props.resumeData;
+
     return (
       <section id="resume">
         <div className="row education">
@@ -12,20 +32,20 @@ export default class Resume extends Component {
           </div>
 
           <div className="nine columns main-col">
-            {resumeData.education &&
-              resumeData.education.map((item) => {
+            {this.state.educations &&
+              this.state.educations.map((item) => {
                 return (
-                  <div className="row item">
+                  <div className="row item education-item">
                     <div className="twelve columns">
-                      <h3>{item.UniversityName}</h3>
+                      <p className="school">{item.school}</p>
                       <p className="info">
-                        {item.specialization}
+                        {item.degree}
                         <span>&bull;</span>{" "}
                         <em className="date">
-                          {item.MonthOfPassing} {item.YearOfPassing}
+                          From {item.start_date} To {item.end_date}
                         </em>
                       </p>
-                      <p>{item.Achievements}</p>
+                      <p>{item.text}</p>
                     </div>
                   </div>
                 );
@@ -40,34 +60,24 @@ export default class Resume extends Component {
           </div>
 
           <div className="nine columns main-col">
-            {resumeData.work &&
-              resumeData.work.map((item) => {
+            {this.state.experiences &&
+              this.state.experiences.map((item) => {
+                const { start_date, end_date, company, position, text } = item;
                 return (
-                  <div className="row item">
-                    <div className="twelve columns">
-                      <h3>{item.CompanyName}</h3>
-                      <p className="info">
-                        {item.specialization}
-                        <span>&bull;</span>{" "}
-                        <em className="date">
-                          {item.MonthOfLeaving} {item.YearOfLeaving}
-                        </em>
-                      </p>
-                      <h5>Some Applications</h5>
-                      <p>
-                        {item.Achievements.map((item, index) => {
-                          const { title, link } = item;
-                          return (
-                            <div className="ach-info" key={index}>
-                              <p className="ach-title">{title}</p>
-                              <a className="ach-link" href={link}>
-                                {link}
-                              </a>
-                            </div>
-                          );
-                        })}
-                      </p>
+                  <div className="experience">
+                    <div className="about-company">
+                      <p className="company">{company}</p>
+                      <div className="dates">
+                        <p className="start_date">{start_date}</p>
+                        <p>-</p>
+                        <p className="end_date">{end_date}</p>
+                      </div>
                     </div>
+
+                    <div className="info">
+                      <p className="position">{position}</p>
+                    </div>
+                    <p className="text">{text}</p>
                   </div>
                 );
               })}
@@ -82,21 +92,13 @@ export default class Resume extends Component {
           </div>
 
           <div className="nine columns main-col">
-            <p>{resumeData.skillsDescription}</p>
-
             <div className="bars">
               <ul className="skills">
-                {resumeData.skills &&
-                  resumeData.skills.map((item) => {
+                {this.state.skills &&
+                  this.state.skills.map((item) => {
                     return (
                       <li>
-                        <span
-                          className={`bar-expand ${item.skillname
-                            .toLowerCase()
-                            .replace(/\s/g, "")
-                            .replace(".", "")}`}
-                        />
-                        <em>{item.skillname}</em>
+                        <em>{item.name}</em>
                       </li>
                     );
                   })}
