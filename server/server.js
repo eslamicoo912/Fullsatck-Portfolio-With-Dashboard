@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import routes from "./routes/index.js";
+import { login } from "./controllers/admin.controller.js";
 
 dotenv.config();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 // routes
 app.use("/api", routes);
+app.post("/admin/login", login);
 
 // database connection
 mongoose
