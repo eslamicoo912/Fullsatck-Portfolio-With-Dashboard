@@ -36,7 +36,7 @@ body {
 
 header {
   position: relative;
-  height: 800px;
+  height: 100vh;
   min-height: 500px;
   width: 100%;
   background: #161415 url(../images/header.jpg) no-repeat top center;
@@ -160,6 +160,7 @@ header .scrolldown a:hover {
   position: fixed;
   left: 0;
   top: 0;
+  background-color: #333;
 }
 .opaque {
   background-color: #333;
@@ -214,10 +215,14 @@ ul#nav li.current a {
 /* ------------------------------------------------------------------ */
 
 #about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #2b2b2b;
   padding-top: 96px;
   padding-bottom: 66px;
   overflow: hidden;
+  height: 100vh;
 }
 
 #about a,
@@ -398,6 +403,7 @@ ul#nav li.current a {
   background: #ebeeee;
   padding-top: 90px;
   padding-bottom: 60px;
+  height: 100vh;
 }
 #portfolio h1 {
   font: 15px/24px "opensans-semibold", sans-serif;
@@ -643,6 +649,7 @@ call-to-action .button {
   min-height: 200px;
   width: 100%;
   overflow: hidden;
+  height: 100vh;
 }
 #testimonials .text-container {
   padding-top: 96px;
@@ -821,6 +828,13 @@ call-to-action .button {
   padding-top: 96px;
   padding-bottom: 102px;
   color: #636363;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contact .profile-pic {
+  border-radius: 50%;
 }
 #contact .section-head {
   margin-bottom: 42px;
