@@ -15,6 +15,8 @@ export default class Login extends Component {
         this.state
       );
 
+      window.location = "/";
+
       if (response.status === 200) {
         const { message } = response.data;
         if (message === "success_login") {

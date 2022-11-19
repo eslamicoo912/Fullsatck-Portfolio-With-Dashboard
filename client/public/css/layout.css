@@ -1097,7 +1097,7 @@ ul {
   font-size: 25px;
 }
 
-form input {
+.login form input {
   color: white;
   width: 300px;
   padding: 5px;
@@ -1109,4 +1109,152 @@ form input {
 
 input::placeholder {
   color: white;
+}
+
+/* start Dashboard */
+.Dashboard {
+  background-color: white !important;
+  min-height: 100vh;
+  display: flex;
+}
+.Dashboard .head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #232e33;
+  padding: 60px;
+}
+.Dashboard .head h3 {
+  color: #95979b;
+  margin-bottom: 0;
+}
+.Dashboard .head .icon {
+  color: #36b548 !important;
+}
+.Dashboard .menu {
+  width: 20%;
+  background-color: #1f272d;
+  display: flex;
+  flex-direction: column;
+}
+
+.Dashboard ul {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 40px;
+  width: 50%;
+  margin: auto;
+}
+
+.Dashboard ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.Dashboard ul li a {
+  color: #95979b !important;
+}
+
+.Dashboard .menu .icon {
+  color: #95979b;
+}
+
+/* dashboard projects */
+
+.Dashboard .projects {
+  min-width: 80%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 30px;
+}
+
+.Dashboard .projects .list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.Dashboard .projects .list .overlay {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.Dashboard .projects .list .overlay .info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Dashboard .projects .list .overlay h5 {
+  font-size: 24px;
+}
+
+.Dashboard .projects .overlay .btns {
+  display: flex;
+  gap: 50px;
+}
+
+.Dashboard .projects .overlay .btns .edit {
+  color: greenyellow;
+}
+
+.Dashboard .projects .overlay .btns .delete {
+  color: red;
+}
+
+.Dashboard .projects .list img {
+  width: 300px;
+}
+
+.Dashboard .projects h4 {
+  color: white;
+}
+
+.Dashboard .projects form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.Dashboard h4 {
+  color: white;
+  font-size: 24px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+}
+
+.Dashboard .projects form input {
+  width: 500px;
+  padding: 10px;
+  background: transparent !important;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #36b548;
+  color: white;
+}
+
+.Dashboard .projects form input::placeholder {
+  font-weight: lighter;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.Dashboard .projects form button {
+  background-color: #36b548;
+  width: 160px;
 }

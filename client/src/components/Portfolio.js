@@ -9,7 +9,6 @@ export default class Porfolio extends Component {
     this.setState({ projects: projectsData.data });
   };
   render() {
-    let resumeData = this.props.resumeData;
     return (
       <section id="portfolio">
         <div className="row">
@@ -34,11 +33,6 @@ export default class Porfolio extends Component {
                             <div className="portfolio-item-meta">
                               <h5>{item.title}</h5>
                               <p>{item.text}</p>
-                            </div>
-                            <div className="stack">
-                              {item.stack.map((item, index) => {
-                                return <p key={index}>{item.name}</p>;
-                              })}
                             </div>
                           </div>
                         </a>

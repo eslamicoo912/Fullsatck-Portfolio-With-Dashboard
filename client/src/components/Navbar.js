@@ -49,7 +49,7 @@ export default class Header extends Component {
             </li>
             <li>
               <Link to="/portfolio" className="smoothscroll">
-                Works
+                Projects
               </Link>
             </li>
             <li>
