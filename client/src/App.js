@@ -9,27 +9,32 @@ import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import resumeData from "./resumeData";
+import Login from "./components/Login";
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" exact element={<Header />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route
-              path="/messages"
-              element={<Testimonials resumeData={resumeData} />}
-            />
-            <Route path="/contact" element={<ContactUs />} />
-          </Routes>
-        </Router>
-      </div>
-    );
+    const sessionStatus = sessionStorage.getItem("status");
+    if (sessionStatus == 200) return <h1>Eslam</h1>;
+    else
+      return (
+        <div className="App">
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" exact element={<Header />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route
+                path="/messages"
+                element={<Testimonials resumeData={resumeData} />}
+              />
+              <Route path="/contact" element={<ContactUs />} />
+            </Routes>
+          </Router>
+        </div>
+      );
   }
 }
 

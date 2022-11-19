@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { AiFillGithub, AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
+import { GrUserAdmin } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 export default class Header extends Component {
@@ -17,17 +17,6 @@ export default class Header extends Component {
     this.setState({ about: aboutData.data[0] });
   };
   render() {
-    const {
-      fullname,
-      address,
-      phone,
-      linkedin,
-      github,
-      email,
-      portfolio,
-      facebook,
-    } = this.state.contacts;
-    const { img, text, position } = this.state.about;
     return (
       <React.Fragment>
         <nav id="nav-wrap">
@@ -71,6 +60,11 @@ export default class Header extends Component {
             <li>
               <Link to="/contact" className="smoothscroll">
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className="icon-container">
+                <GrUserAdmin className="icon" />
               </Link>
             </li>
           </ul>
