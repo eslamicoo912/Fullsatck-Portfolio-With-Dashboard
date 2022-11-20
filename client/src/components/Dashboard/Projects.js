@@ -31,8 +31,8 @@ export default function Projects() {
       "http://localhost:5000/api/projects",
       formData
     );
-    console.log(postProject.data);
     setVisibleForm(false);
+    window.location = "http://localhost:3000/projects";
   };
 
   const handleChange = (e) => {
@@ -83,6 +83,15 @@ export default function Projects() {
         </form>
       </div>
     );
+
+  const editProject = async (title) => {};
+
+  const deleteProject = async (title) => {
+    const project = projects.filter((pro) => pro.title === title);
+    await axios.delete(`http://localhost:5000/api/projects/${project[0]._id}`);
+    window.location = "http://localhost:3000/projects";
+  };
+
   return (
     <div className="projects">
       <button className="add" onClick={() => setVisibleForm(true)}>
@@ -103,8 +112,14 @@ export default function Projects() {
                       </div>
 
                       <div className="btns">
-                        <FiEdit className="edit icon" />
-                        <MdDelete className="delete icon" />
+                        <FiEdit
+                          onClick={() => editProject(item.title)}
+                          className="edit icon"
+                        />
+                        <MdDelete
+                          onClick={() => deleteProject(item.title)}
+                          className="delete icon"
+                        />
                       </div>
                     </div>
                   </a>
