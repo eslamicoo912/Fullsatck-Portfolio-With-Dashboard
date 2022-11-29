@@ -6,7 +6,7 @@ import { FiEdit } from "react-icons/fi";
 export default function WorkD() {
   const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [visibleForm, setVisibleForm] = useState(false);
+  const [visibleForm, setVisibleForm] = useState(null);
   const [formData, setFormData] = useState({
     start_date: "",
     end_date: "",
@@ -27,7 +27,7 @@ export default function WorkD() {
   };
 
   const editHandle = async (_id) => {
-    setVisibleForm(true);
+    setVisibleForm("edit");
     const response = await axios.get(`http://localhost:5000/api/works/${_id}`);
     const { data } = response;
     setFormData(data);
@@ -42,9 +42,15 @@ export default function WorkD() {
     });
   };
 
-  const updateWork = async (_id) => {
+  const addWork = async () => {
+    await axios.post("http://localhost:5000/api/works", formData);
+    setVisibleForm(null);
+  };
+
+  const updateWork = async () => {
+    const { _id } = formData;
     await axios.patch(`http://localhost:5000/api/works/${_id}`, formData);
-    setVisibleForm(false);
+    setVisibleForm(null);
   };
 
   const deleteWork = async (_id) => {
@@ -56,9 +62,13 @@ export default function WorkD() {
 
   return (
     <div className={visibleForm ? "workDForm" : "workD"}>
-      {!visibleForm && <h1>Work Experience</h1>}
+      {!visibleForm && (
+        <button onClick={() => setVisibleForm("add")}>
+          Add Work Experience
+        </button>
+      )}
       {visibleForm ? (
-        <form onSubmit={updateWork}>
+        <form onSubmit={visibleForm === "edit" ? updateWork : addWork}>
           <div className="field-container">
             <label>Start Date</label>
             <input
@@ -103,38 +113,46 @@ export default function WorkD() {
               onChange={handleChange}
             ></textarea>
           </div>
-          <div className="submit-container">
-            <button type="submit">Update</button>
+          <div className="btns-container">
+            <button type="submit">
+              {visibleForm === "edit" ? "Update" : "Add"}
+            </button>
+            <button className="cancel" onClick={() => setVisibleForm(null)}>
+              Cancel
+            </button>
           </div>
         </form>
       ) : (
-        works.map((work, index) => {
-          const { _id, start_date, end_date, company, position, text } = work;
-          return (
-            <div className="experience" key={index}>
-              <div className="about-company">
+        <div className="works-list">
+          {works.map((work, index) => {
+            const { _id, start_date, end_date, company, position, text } = work;
+            return (
+              <div className="experience" key={index}>
                 <p className="company">{company}</p>
                 <div className="dates">
                   <p className="start_date">{start_date}</p>
                   <p>-</p>
                   <p className="end_date">{end_date}</p>
                 </div>
-              </div>
 
-              <div className="info">
-                <p className="position">{position}</p>
+                <div className="info">
+                  <p className="position">{position}</p>
+                </div>
+                <p className="text">{text}</p>
+                <div className="btns">
+                  <FiEdit
+                    className="edit icon"
+                    onClick={() => editHandle(_id)}
+                  />
+                  <MdDelete
+                    className="delete icon"
+                    onClick={() => deleteWork(_id)}
+                  />
+                </div>
               </div>
-              <p className="text">{text}</p>
-              <div className="btns">
-                <FiEdit className="edit icon" onClick={() => editHandle(_id)} />
-                <MdDelete
-                  className="delete icon"
-                  onClick={() => deleteWork(_id)}
-                />
-              </div>
-            </div>
-          );
-        })
+            );
+          })}
+        </div>
       )}
     </div>
   );

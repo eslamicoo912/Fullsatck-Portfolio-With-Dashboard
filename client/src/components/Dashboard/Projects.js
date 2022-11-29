@@ -95,9 +95,14 @@ export default function Projects() {
             name="live"
             onChange={handleChange}
           />
-          <button type="submit">
-            {visibleForm === "add" ? "Add Project" : "Edit Project"}
-          </button>
+          <div className="btns-container">
+            <button type="submit">
+              {visibleForm === "add" ? "Add Project" : "Edit Project"}
+            </button>
+            <button className="cancel" onClick={() => setVisibleForm(null)}>
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );

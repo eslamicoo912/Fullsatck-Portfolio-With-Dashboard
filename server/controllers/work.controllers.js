@@ -22,7 +22,7 @@ export const getAll = async (req, res) => {
 export const getOne = async (req, res) => {
   const id = req.params.id;
   try {
-    const work = await WorkModel.findById(id);
+    const work = await WorkModel.findOne({ _id: id });
     res.json(work);
   } catch (error) {
     console.log(error);
@@ -32,7 +32,7 @@ export const getOne = async (req, res) => {
 export const update = async (req, res) => {
   const id = req.params.id;
   try {
-    const updatedwork = await WorkModel.updateOne({ id: id }, req.body, {
+    const updatedwork = await WorkModel.updateOne({ _id: id }, req.body, {
       new: true,
     });
     res.json(updatedwork);

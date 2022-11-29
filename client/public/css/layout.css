@@ -1354,17 +1354,15 @@ input::placeholder {
 /* start work experience */
 
 .workD {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 .workD .experience {
-  width: 75%;
-  margin: 20px auto;
   padding: 10px;
-  gap: 0;
+  min-width: 350px;
 }
 
 .workD .btns {
@@ -1431,7 +1429,20 @@ input::placeholder {
   grid-row: 3/4;
 }
 
-.workDForm .submit-container {
-  grid-row-start: 4;
-  grid-row-end: 4;
+.btns-container {
+  display: flex;
+  gap: 10px;
+}
+
+.works-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cancel {
+  background-color: red !important;
+  color: white;
 }
