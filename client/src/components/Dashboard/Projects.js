@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MdDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
+import { FaGithub, FaHandPointer } from "react-icons/fa";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
-  const [visibleForm, setVisibleForm] = useState(false);
+  const [visibleForm, setVisibleForm] = useState(null);
+  const [editTitle, setEditTitle] = useState(null);
   const [formData, setFormData] = useState({
     img: "",
     title: "",
@@ -25,16 +27,6 @@ export default function Projects() {
 
   const { img, title, text, github, live } = formData;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const postProject = await axios.post(
-      "http://localhost:5000/api/projects",
-      formData
-    );
-    setVisibleForm(false);
-    window.location = "http://localhost:3000/projects";
-  };
-
   const handleChange = (e) => {
     setFormData((prevData) => {
       return {
@@ -42,6 +34,30 @@ export default function Projects() {
         [e.target.name]: e.target.value,
       };
     });
+  };
+
+  const handleSubmit = async (e) => {
+    if (visibleForm === "add")
+      await axios.post("http://localhost:5000/api/projects", formData);
+    if (visibleForm === "edit") {
+      const project = projects.filter((pro) => pro.title === editTitle);
+      await axios.patch(
+        `http://localhost:5000/api/projects/${project[0]._id}`,
+        formData
+      );
+    }
+    setVisibleForm(null);
+    getProjects();
+  };
+
+  const deleteProject = async (title) => {
+    const project = projects.filter((pro) => pro.title === title);
+    await axios.delete(`http://localhost:5000/api/projects/${project[0]._id}`);
+    getProjects();
+  };
+
+  const getTitle = (title) => {
+    setEditTitle(title);
   };
 
   if (visibleForm)
@@ -79,22 +95,21 @@ export default function Projects() {
             name="live"
             onChange={handleChange}
           />
-          <button type="submit">Add Project</button>
+          <button type="submit">
+            {visibleForm === "add" ? "Add Project" : "Edit Project"}
+          </button>
         </form>
       </div>
     );
-
-  const editProject = async (title) => {};
-
-  const deleteProject = async (title) => {
-    const project = projects.filter((pro) => pro.title === title);
-    await axios.delete(`http://localhost:5000/api/projects/${project[0]._id}`);
-    window.location = "http://localhost:3000/projects";
-  };
-
   return (
     <div className="projects">
-      <button className="add" onClick={() => setVisibleForm(true)}>
+      <button
+        className="add"
+        onClick={() => {
+          setVisibleForm("add");
+          setFormData("");
+        }}
+      >
         New Project
       </button>
       <div className="list">
@@ -112,8 +127,14 @@ export default function Projects() {
                       </div>
 
                       <div className="btns">
+                        <FaGithub className="icon github" />
+                        <FaHandPointer className="icon live" />
                         <FiEdit
-                          onClick={() => editProject(item.title)}
+                          onClick={() => {
+                            setVisibleForm("edit");
+                            getTitle(item.title);
+                            setFormData(item);
+                          }}
                           className="edit icon"
                         />
                         <MdDelete

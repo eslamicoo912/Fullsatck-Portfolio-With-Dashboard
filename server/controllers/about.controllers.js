@@ -20,11 +20,14 @@ export const getAll = async (req, res) => {
 };
 
 export const update = async (req, res) => {
-  const id = req.params.id;
   try {
-    const updatedAbout = await AboutModel.updateOne({ id: id }, req.body, {
-      new: true,
-    });
+    const updatedAbout = await AboutModel.updateOne(
+      { _id: "636f61f526b1fdc21411b82f" },
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.json(updatedAbout);
   } catch (error) {
     console.log(error);

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FaHandPointer, FaGithub } from "react-icons/fa";
 export default class Porfolio extends Component {
   state = {
     projects: "",
@@ -24,15 +25,15 @@ export default class Porfolio extends Component {
                     <div className="columns portfolio-item">
                       <div className="item-wrap">
                         <a href="#modal-01">
-                          <img
-                            src={`${item.img}`}
-                            className="item-img"
-                            alt=""
-                          />
+                          <img src={`${item.img}`} alt="" />
                           <div className="overlay">
                             <div className="portfolio-item-meta">
                               <h5>{item.title}</h5>
                               <p>{item.text}</p>
+                            </div>
+                            <div className="btns">
+                              <FaGithub className="icon github" />
+                              <FaHandPointer className="icon live" />
                             </div>
                           </div>
                         </a>

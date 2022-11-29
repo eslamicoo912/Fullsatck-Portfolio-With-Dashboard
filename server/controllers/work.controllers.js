@@ -44,7 +44,7 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
   const id = req.params.id;
   try {
-    await WorkModel.findOneAndDelete({ id: id });
+    await WorkModel.findOneAndDelete({ _id: id });
     res.json({ message: `work ${id} deleted` });
   } catch (error) {
     console.log(error);

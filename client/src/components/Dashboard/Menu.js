@@ -21,17 +21,18 @@ export default class Menu extends Component {
         </div>
         <ul>
           <li>
+            <AiOutlineFundProjectionScreen className="icon" />
+            <Link to="/">Projects</Link>
+          </li>
+          <li>
             <MdInfo className="icon" />
-            <Link to="/">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
             <MdOutlineWork className="icon" />
             <Link to="/work">Work</Link>
           </li>
-          <li>
-            <AiOutlineFundProjectionScreen className="icon" />
-            <Link to="/projects">Projects</Link>
-          </li>
+
           <li>
             <MdCastForEducation className="icon" />
             <Link to="/education">Education</Link>

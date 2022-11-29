@@ -32,7 +32,7 @@ export const getOne = async (req, res) => {
 export const update = async (req, res) => {
   const id = req.params.id;
   try {
-    const updatedProject = await ProjectModel.updateOne({ id: id }, req.body, {
+    const updatedProject = await ProjectModel.updateOne({ _id: id }, req.body, {
       new: true,
     });
     res.json(updatedProject);
@@ -44,7 +44,7 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
   const id = req.params.id;
   try {
-    await ProjectModel.findOneAndDelete({ id: id });
+    await ProjectModel.findOneAndDelete({ _id: id });
     res.json({ message: `project ${id} deleted` });
   } catch (error) {
     console.log(error);

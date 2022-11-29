@@ -26,8 +26,8 @@ class App extends Component {
           <Router>
             <Menu />
             <Routes>
-              <Route path="/" element={<AboutD />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/" element={<Projects />} />
+              <Route path="/about" element={<AboutD />} />
               <Route path="/work" element={<WorkD />} />
               <Route path="/education" element={<EducationD />} />
               <Route path="/skills" element={<SkillsD />} />
