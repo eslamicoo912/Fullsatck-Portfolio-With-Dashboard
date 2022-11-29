@@ -33,7 +33,7 @@ export const update = async (req, res) => {
   const id = req.params.id;
   try {
     const updatededucation = await EducationModel.updateOne(
-      { id: id },
+      { _id: id },
       req.body,
       {
         new: true,
@@ -48,7 +48,7 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
   const id = req.params.id;
   try {
-    await EducationModel.findOneAndDelete({ id: id });
+    await EducationModel.findOneAndDelete({ _id: id });
     res.json({ message: `education ${id} deleted` });
   } catch (error) {
     console.log(error);

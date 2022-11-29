@@ -32,7 +32,7 @@ export const getOne = async (req, res) => {
 export const update = async (req, res) => {
   const id = req.params.id;
   try {
-    const updatedSkill = await SkillModel.updateOne({ id: id }, req.body, {
+    const updatedSkill = await SkillModel.updateOne({ _id: id }, req.body, {
       new: true,
     });
     res.json(updatedSkill);
@@ -44,7 +44,7 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
   const id = req.params.id;
   try {
-    await SkillModel.findOneAndDelete({ id: id });
+    await SkillModel.findOneAndDelete({ _id: id });
     res.json({ message: `skill ${id} deleted` });
   } catch (error) {
     console.log(error);
