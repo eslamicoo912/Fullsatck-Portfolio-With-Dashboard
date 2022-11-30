@@ -1329,6 +1329,14 @@ input::placeholder {
   margin: 0;
 }
 
+.Dashboard .aboutD input {
+  padding: 10px;
+}
+
+.Dashboard .aboutD button {
+  margin-top: 15px;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -1550,6 +1558,7 @@ input::placeholder {
   border: none;
   box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
   outline: none;
+  color: black;
 }
 
 .table input::placeholder {

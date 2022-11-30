@@ -25,7 +25,6 @@ export default function ContactCard({ contact, object_id }) {
       {visibleInput === object_id ? (
         <form>
           <input
-            value={contact}
             name="contactInput"
             onChange={(e) => setContactInput(e.target.value)}
           />{" "}
