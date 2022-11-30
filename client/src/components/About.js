@@ -3,21 +3,15 @@ import axios from "axios";
 export default class About extends Component {
   state = {
     aboutData: "",
-    contacts: "",
   };
 
   componentDidMount = async () => {
     const aboutData = await axios.get("http://localhost:5000/api/about");
     this.setState({ aboutData: aboutData.data[0] });
-
-    const contactsData = await axios.get("http://localhost:5000/api/contact");
-    this.setState({ contacts: contactsData.data[0] });
   };
 
   render() {
     const { img, text } = this.state.aboutData;
-    const { fullname, address, phone, linkedin, github, email, portfolio } =
-      this.state.contacts;
     return (
       <section id="about">
         <div className="row">
@@ -33,11 +27,11 @@ export default class About extends Component {
               <div className=" contact-details">
                 <h2>Contact Details</h2>
                 <p className="address">
-                  <span>{fullname}</span>
+                  <span>Eslam Ashraf</span>
                   <br />
-                  <span>{address}</span>
+                  <span>Sharkia, Egypt</span>
                   <br />
-                  <a href="/">{portfolio}</a>
+                  <span>01013540912</span>
                 </p>
               </div>
             </div>

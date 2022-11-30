@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 export default class ContactUs extends Component {
   state = {
-    contacts: "",
+    contacts: [],
     aboutData: "",
   };
 
   componentDidMount = async () => {
     const response = await axios.get("http://localhost:5000/api/contact");
-    this.setState({ contacts: response.data[0] });
+    this.setState({ contacts: response.data });
     const aboutData = await axios.get("http://localhost:5000/api/about");
     this.setState({ aboutData: aboutData.data[0] });
   };
@@ -28,12 +28,9 @@ export default class ContactUs extends Component {
           </div>
           <aside className="eigth columns footer-widgets">
             <div className="widget">
-              <h4>Linked in :</h4>
-              <a href="/">{linkedin}</a>
-              <h4>Gmail :</h4>
-              <a href="/">{email}</a>
-              <h4>Phone</h4>
-              <h5 className="contact-phone">{phone}</h5>
+              {this.state.contacts.map((item, index) => {
+                return <p className="cont">{item.contact}</p>;
+              })}
             </div>
           </aside>
           <div className="three columns">

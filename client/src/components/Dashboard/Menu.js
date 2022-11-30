@@ -39,11 +39,6 @@ export default class Menu extends Component {
           </li>
 
           <li>
-            <GiSkills className="icon" />
-            <Link to="/skills">Skills</Link>
-          </li>
-
-          <li>
             <MdContactMail className="icon" />
             <Link to="/contacts">Contacts</Link>
           </li>

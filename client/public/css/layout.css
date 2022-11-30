@@ -30,10 +30,6 @@ body {
 /* b. Header Styles
 /* ------------------------------------------------------------------ */
 
-* {
-  transition: 0.3s;
-}
-
 header {
   position: relative;
   height: 100vh;
@@ -252,6 +248,9 @@ ul#nav li.current a {
 }
 #about .contact-details {
   width: 41.66667%;
+}
+#about .address {
+  margin: 5px 0;
 }
 #about .download {
   width: 58.33333%;
@@ -886,6 +885,12 @@ call-to-action .button {
 #contact .header-col {
   padding-top: 6px;
 }
+#contact .cont {
+  color: #92d4ff;
+  margin: 15px 0;
+  font-weight: lighter;
+  letter-spacing: 2px;
+}
 
 /* contact form */
 #contact form {
@@ -1376,11 +1381,11 @@ input::placeholder {
   cursor: pointer;
 }
 
-.workD .delete {
+.delete {
   color: red;
 }
 
-.workD .edit {
+.edit {
   color: green;
 }
 
@@ -1447,4 +1452,132 @@ input::placeholder {
   color: white;
 }
 
-/* start dashboard educations */
+/* start dashboard contacts 
+.contactsD .contact {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 30px;
+}
+.contactsD .contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-container .info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-container .btns {
+  display: flex;
+  gap: 12px;
+}
+*/
+.table {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  margin-top: 50px;
+}
+
+.table-header {
+  display: flex;
+  width: 100%;
+  background: #000;
+  padding: 18px 0;
+}
+
+.table-row {
+  display: flex;
+  width: 100%;
+  padding: 18px 0;
+}
+.table-row:nth-of-type(odd) {
+  background: #eeeeee;
+}
+
+.table-data,
+.header__item {
+  flex: 1 1 20%;
+  text-align: center;
+}
+
+.header__item {
+  text-transform: uppercase;
+}
+
+.filter__link {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.filter__link::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  color: white;
+  font-size: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.filter__link.desc::after {
+  content: "(desc)";
+}
+.filter__link.asc::after {
+  content: "(asc)";
+}
+
+.table button {
+  padding: 10px;
+  margin: 0;
+}
+
+.table form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.table input {
+  width: 300px;
+  padding: 12px;
+  border: none;
+  box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.table input::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+
+.add-icon {
+  font-size: 5rem;
+  color: #35e174;
+  cursor: pointer;
+}
+
+.table .icon {
+  cursor: pointer;
+}
+
+.table-row form {
+  padding: 0 30px;
+}
+
+.table-row form button {
+  padding: 0;
+  background-color: #000000;
+  padding: 6px;
+}
+
+.table-row:hover {
+  background-color: rgb(13, 175, 224);
+  color: white;
+}

@@ -1,14 +1,7 @@
 import mongoose from "mongoose";
 
 const Contact = mongoose.Schema({
-  fullname: String,
-  address: String,
-  phone: String,
-  linkedin: String,
-  github: String,
-  facebook: String,
-  email: String,
-  portfolio: String,
+  contact: String,
 });
 
 const ContactModel = mongoose.model("ContactModel", Contact);
