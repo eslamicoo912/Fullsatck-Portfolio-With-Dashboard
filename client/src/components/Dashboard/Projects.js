@@ -39,6 +39,7 @@ export default function Projects() {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     if (visibleForm === "add")
       await axios.post(
         "https://portfolio-oqt5.onrender.com/api/projects",
