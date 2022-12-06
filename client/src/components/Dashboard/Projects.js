@@ -17,7 +17,9 @@ export default function Projects() {
   });
 
   const getProjects = async () => {
-    const getProjects = await axios.get("http://localhost:5000/api/projects");
+    const getProjects = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/projects"
+    );
     setProjects(getProjects.data);
   };
 
@@ -38,11 +40,14 @@ export default function Projects() {
 
   const handleSubmit = async (e) => {
     if (visibleForm === "add")
-      await axios.post("http://localhost:5000/api/projects", formData);
+      await axios.post(
+        "https://portfolio-oqt5.onrender.com/api/projects",
+        formData
+      );
     if (visibleForm === "edit") {
       const project = projects.filter((pro) => pro.title === editTitle);
       await axios.patch(
-        `http://localhost:5000/api/projects/${project[0]._id}`,
+        `https://portfolio-oqt5.onrender.com/api/projects/${project[0]._id}`,
         formData
       );
     }
@@ -52,7 +57,9 @@ export default function Projects() {
 
   const deleteProject = async (title) => {
     const project = projects.filter((pro) => pro.title === title);
-    await axios.delete(`http://localhost:5000/api/projects/${project[0]._id}`);
+    await axios.delete(
+      `https://portfolio-oqt5.onrender.com/api/projects/${project[0]._id}`
+    );
     getProjects();
   };
 

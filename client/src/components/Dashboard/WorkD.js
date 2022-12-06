@@ -20,7 +20,9 @@ export default function WorkD() {
   }, []);
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:5000/api/works");
+    const response = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/works"
+    );
     const { data } = response;
     setWorks(data);
     setLoading(false);
@@ -28,7 +30,9 @@ export default function WorkD() {
 
   const editHandle = async (_id) => {
     setVisibleForm("edit");
-    const response = await axios.get(`http://localhost:5000/api/works/${_id}`);
+    const response = await axios.get(
+      `https://portfolio-oqt5.onrender.com/api/works/${_id}`
+    );
     const { data } = response;
     setFormData(data);
   };
@@ -43,18 +47,21 @@ export default function WorkD() {
   };
 
   const addWork = async () => {
-    await axios.post("http://localhost:5000/api/works", formData);
+    await axios.post("https://portfolio-oqt5.onrender.com/api/works", formData);
     setVisibleForm(null);
   };
 
   const updateWork = async () => {
     const { _id } = formData;
-    await axios.patch(`http://localhost:5000/api/works/${_id}`, formData);
+    await axios.patch(
+      `https://portfolio-oqt5.onrender.com/api/works/${_id}`,
+      formData
+    );
     setVisibleForm(null);
   };
 
   const deleteWork = async (_id) => {
-    await axios.delete(`http://localhost:5000/api/works/${_id}`);
+    await axios.delete(`https://portfolio-oqt5.onrender.com/api/works/${_id}`);
     window.location.reload();
   };
 

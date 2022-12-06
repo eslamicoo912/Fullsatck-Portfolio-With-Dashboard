@@ -6,15 +6,19 @@ export default function Resume() {
   const [experiences, setExperiences] = useState([]);
 
   const getData = async () => {
-    const skillsData = await axios.get("http://localhost:5000/api/skills");
+    const skillsData = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/skills"
+    );
     setSkills(skillsData.data[0].skills);
 
     const educationsData = await axios.get(
-      "http://localhost:5000/api/educations"
+      "https://portfolio-oqt5.onrender.com/api/educations"
     );
     setEducations(educationsData.data);
 
-    const experiencesData = await axios.get("http://localhost:5000/api/works");
+    const experiencesData = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/works"
+    );
     setExperiences(experiencesData.data);
   };
 

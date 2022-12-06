@@ -13,7 +13,9 @@ export default function AboutD() {
   });
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:5000/api/about");
+    const response = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/about"
+    );
     const data = response.data[0];
     setAboutData(data);
     setLoading(false);
@@ -33,7 +35,10 @@ export default function AboutD() {
   };
 
   const patchData = async (e) => {
-    await axios.patch("http://localhost:5000/api/about", formData);
+    await axios.patch(
+      "https://portfolio-oqt5.onrender.com/api/about",
+      formData
+    );
     setVisibleForm(false);
   };
 

@@ -5,7 +5,9 @@ export default function Porfolio() {
   const [projects, setProjects] = useState([]);
 
   const getData = async () => {
-    const projectsData = await axios.get("http://localhost:5000/api/projects");
+    const projectsData = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/projects"
+    );
     setProjects(projectsData.data);
   };
 

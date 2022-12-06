@@ -11,7 +11,9 @@ export default function ContactsD() {
   });
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:5000/api/contact");
+    const response = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/contact"
+    );
     const { data } = response;
     setContacts(data);
     setLoading(false);
@@ -31,7 +33,10 @@ export default function ContactsD() {
   };
 
   const addContact = async () => {
-    await axios.post("http://localhost:5000/api/contact", formData);
+    await axios.post(
+      "https://portfolio-oqt5.onrender.com/api/contact",
+      formData
+    );
     setFormData({ contact: "" });
   };
 

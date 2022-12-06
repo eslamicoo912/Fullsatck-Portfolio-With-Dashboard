@@ -9,16 +9,21 @@ export default function ContactCard({ contact, object_id }) {
 
   const editBtn = async (e) => {
     e.preventDefault();
-    await axios.patch(`http://localhost:5000/api/contact/${object_id}`, {
-      contact: contactInput,
-    });
+    await axios.patch(
+      `https://portfolio-oqt5.onrender.com/api/contact/${object_id}`,
+      {
+        contact: contactInput,
+      }
+    );
     setVisibleInput("");
     console.log(contactInput);
   };
 
   const deleteBtn = async (e) => {
     e.preventDefault();
-    await axios.delete(`http://localhost:5000/api/contact/${object_id}`);
+    await axios.delete(
+      `https://portfolio-oqt5.onrender.com/api/contact/${object_id}`
+    );
   };
   return (
     <div className="table-row">

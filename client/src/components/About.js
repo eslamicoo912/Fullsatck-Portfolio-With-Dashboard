@@ -4,7 +4,9 @@ export default function About() {
   const [aboutData, setAboutData] = useState({});
 
   const getData = async () => {
-    const response = await axios.get("http://localhost:5000/api/about");
+    const response = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/about"
+    );
     const { data } = response;
     setAboutData(data[0]);
   };

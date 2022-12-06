@@ -7,10 +7,14 @@ export default function Header() {
   const [contacts, setContacts] = useState({});
 
   const getData = async () => {
-    const aboutData = await axios.get("http://localhost:5000/api/about");
+    const aboutData = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/about"
+    );
     setAboutData(aboutData.data[0]);
 
-    const contactsData = await axios.get("http://localhost:5000/api/contact");
+    const contactsData = await axios.get(
+      "https://portfolio-oqt5.onrender.com/api/contact"
+    );
     setContacts(contactsData.data[0]);
   };
 
