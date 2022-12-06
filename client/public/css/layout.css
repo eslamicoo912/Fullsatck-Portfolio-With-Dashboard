@@ -277,7 +277,7 @@ ul#nav li.current a {
 /* ------------------------------------------------------------------ */
 
 #resume {
-  background: #fff;
+  background: #f2f2f5;
   padding-top: 90px;
   padding-bottom: 72px;
   overflow: hidden;
@@ -320,10 +320,10 @@ ul#nav li.current a {
 }
 
 .education-item {
-  background-color: #ebeeee;
+  background-color: white;
   padding: 20px;
   box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
-  border-left: 4px solid #4790c3;
+  border: 1px solid #e6e6e6;
   margin-top: 50px;
 }
 
@@ -345,11 +345,11 @@ ul#nav li.current a {
 }
 
 .experience {
-  background-color: #ebeeee;
+  background-color: white;
   padding: 20px;
   margin-top: 50px;
   box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.5);
-  border-left: 4px solid #4790c3;
+  border: 1px solid #e6e6e6;
 }
 
 .experience .company {
@@ -390,8 +390,14 @@ ul#nav li.current a {
 }
 
 .bars ul li {
-  background-color: #ebeeee;
+  background-color: white;
+  border: 1px solid #e6e6e6;
   padding: 10px;
+}
+
+.bars ul li:hover {
+  color: white;
+  background-color: #f06000;
 }
 
 /* ------------------------------------------------------------------ */
@@ -886,7 +892,7 @@ call-to-action .button {
   padding-top: 6px;
 }
 #contact .cont {
-  color: #92d4ff;
+  color: #7a7a7a;
   margin: 15px 0;
   font-weight: lighter;
   letter-spacing: 2px;
