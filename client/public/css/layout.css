@@ -436,7 +436,8 @@ ul#nav li.current a {
 }
 .portfolio-item img {
   width: 300px;
-  height: 250px;
+  height: 270px;
+  border-radius: 5px;
 }
 .portfolio-item .item-wrap a {
   display: block;
@@ -461,6 +462,11 @@ ul#nav li.current a {
   transition: opacity 0.3s ease-in-out;
 
   background: url(../images/overlay-bg.png) repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
 }
 .portfolio-item .item-wrap .link-icon {
   display: block;
@@ -500,6 +506,23 @@ ul#nav li.current a {
   font: 12px/18px "opensans-light", sans-serif;
   color: #c6c7c7;
   margin-bottom: 0;
+}
+.portfolio-item .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30%;
+}
+
+.portfolio-item .btns .icon {
+  color: white !important;
+  border-radius: 50%;
+
+  font-size: 5rem;
+  padding: 6px;
+}
+.portfolio-item .btns .icon:hover {
+  color: #f06000 !important;
 }
 
 /* on hover */

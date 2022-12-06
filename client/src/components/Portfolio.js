@@ -13,6 +13,7 @@ export default function Porfolio() {
 
   useEffect(() => {
     getData();
+    console.log(projects[0]);
   }, []);
   return (
     <section id="portfolio">
@@ -36,8 +37,20 @@ export default function Porfolio() {
                             <p>{item.text}</p>
                           </div>
                           <div className="btns">
-                            <FaGithub className="icon github" />
-                            <FaHandPointer className="icon live" />
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={item.github}
+                            >
+                              <FaGithub className="icon github" />
+                            </a>
+                            <a
+                              rel="noreferrer"
+                              target="_blank"
+                              href={item.live}
+                            >
+                              <FaHandPointer className="icon live" />
+                            </a>
                           </div>
                         </div>
                       </a>
