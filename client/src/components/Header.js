@@ -5,6 +5,7 @@ import { AiFillGithub, AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
 export default function Header() {
   const [aboutData, setAboutData] = useState({});
   const [contacts, setContacts] = useState({});
+  const [loading, setLoadind] = useState(true);
 
   const getData = async () => {
     const aboutData = await axios.get(
@@ -16,11 +17,19 @@ export default function Header() {
       "https://portfolio-oqt5.onrender.com/api/contact"
     );
     setContacts(contactsData.data[0]);
+    setLoadind(false);
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  if (loading)
+    return (
+      <header id="home">
+        <h1>Loading...</h1>
+      </header>
+    );
 
   const { position } = aboutData;
   return (
